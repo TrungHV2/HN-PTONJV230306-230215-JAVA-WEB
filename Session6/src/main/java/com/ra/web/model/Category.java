@@ -5,6 +5,7 @@ public class Category {
     private String name;
     private String parentId;
     private boolean status;
+    private String parent;
 
     public Category() {
     }
@@ -46,5 +47,13 @@ public class Category {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getParent() {
+        return parent;
+    }
+
+    public void setParent(String parent) {
+        this.parent = parent;
     }
 }

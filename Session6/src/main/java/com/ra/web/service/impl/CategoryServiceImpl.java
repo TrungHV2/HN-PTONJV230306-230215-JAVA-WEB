@@ -39,6 +39,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void edit(Category category) {
+
+    }
+
+    @Override
     public List<Category> findAll() {
         List<Category> data = new ArrayList<>();
         Connection conn = null;
@@ -108,6 +113,11 @@ public class CategoryServiceImpl implements CategoryService {
             }
         }
         return data;
+    }
+
+    @Override
+    public Category findId(String id) {
+        return null;
     }
 
 

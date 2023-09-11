@@ -3,6 +3,7 @@ package com.ra.web.controller;
 import com.ra.web.model.Category;
 import com.ra.web.service.CategoryService;
 import com.ra.web.service.impl.CategoryServiceImpl;
+import com.ra.web.service.impl.CategoryServiceProcImpl;
 import com.ra.web.util.MySqlConnection;
 
 import java.io.*;
@@ -27,7 +28,7 @@ public class HelloServlet extends HttpServlet {
 //            System.out.println("[INFO] Connect successfully!");
 //        else
 //            System.out.println("[ERROR] Connect failed!");
-        CategoryService service = new CategoryServiceImpl();
+        CategoryService service = new CategoryServiceProcImpl();
 
 //        List<Category> data = service.findAll();
         List<Category> data = service.findByName("Điện");
