@@ -128,12 +128,17 @@ public class CategoryServiceProcImpl implements CategoryService {
             // Tạo câu truy vấn
             cs = conn.prepareCall("CALL sp_categories_insert(?,?,?,?)");
             // Truyền tham số
-            cs.setString(1, category.getId());
+            //cs.setString(1, category.getId());
+            // Đăng ký tham số OUT
+            cs.registerOutParameter(1, Types.VARCHAR, 36);
             cs.setString(2, category.getName());
             cs.setString(3, category.getParentId());
             cs.setBoolean(4, category.isStatus());
             // Thực thi
             int result = cs.executeUpdate();
+            // Lấy giá trị của tham số OUT
+            String _id = cs.getString(1);
+            System.out.println(_id);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {

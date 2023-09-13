@@ -10,5 +10,6 @@
 <br/>
 <a href="hello-servlet">Hello Servlet</a> |
 <a href="categories">Danh mục</a> |
+<a href="customers">Khách hàng</a> |
 </body>
 </html>
