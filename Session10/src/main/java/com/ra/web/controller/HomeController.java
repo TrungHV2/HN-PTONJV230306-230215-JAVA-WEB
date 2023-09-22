@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,6 +40,7 @@ public class HomeController {
     @PostMapping("/edit")
     public ModelAndView edit(@ModelAttribute Customer customer) {
         ModelAndView view = new ModelAndView("home/result");
+        Path path = Paths.get("classpath:/static/uploads/");
         customer.setId(UUID.randomUUID().toString());
         view.addObject("customer", customer);
         return view;

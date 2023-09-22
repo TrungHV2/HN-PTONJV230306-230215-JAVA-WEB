@@ -29,4 +29,14 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer findId(String id) {
         return repository.findId(id);
     }
+
+    @Override
+    public void add(Customer c) {
+        repository.add(c);
+    }
+
+    @Override
+    public void edit(Customer c) {
+        repository.edit(c);
+    }
 }

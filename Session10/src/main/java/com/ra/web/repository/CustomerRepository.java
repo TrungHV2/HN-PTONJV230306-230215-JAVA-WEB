@@ -8,4 +8,6 @@ import java.util.List;
 public interface CustomerRepository {
     List<Customer> findAll();
     Customer findId(String id);
+    void add(Customer cus);
+    void edit(Customer cus);
 }

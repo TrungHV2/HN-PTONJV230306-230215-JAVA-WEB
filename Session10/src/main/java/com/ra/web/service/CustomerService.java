@@ -7,4 +7,6 @@ import java.util.List;
 public interface CustomerService {
     List<Customer> findAll();
     Customer findId(String id);
+    void add(Customer c);
+    void edit(Customer c);
 }

@@ -1,21 +1,26 @@
 package com.ra.web.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 public class Customer {
     private String id;
     private String name;
     private int age;
-    private Timestamp birthday;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
     private String avatar;
+    private MultipartFile image;
 
     public Customer() {
     }
 
-    public Customer(String id, String name, int age, Timestamp birthday, String avatar) {
+    public Customer(String id, String name, int age, Date birthday, String avatar) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -47,11 +52,11 @@ public class Customer {
         this.age = age;
     }
 
-    public Timestamp getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -61,5 +66,13 @@ public class Customer {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }
