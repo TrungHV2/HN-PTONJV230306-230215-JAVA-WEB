@@ -36,8 +36,16 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/img/**", "/css/**", "/lib/**", "/js/**")
-                .addResourceLocations("classpath:/static/img/", "classpath:/static/css/", "classpath:/static/lib/", "classpath:/static/js/");
+                .addResourceHandler("/img/**",
+                        "/css/**",
+                        "/lib/**",
+                        "/js/**",
+                        "/fonts/**")
+                .addResourceLocations("classpath:/static/img/",
+                        "classpath:/static/css/",
+                        "classpath:/static/lib/",
+                        "classpath:/static/js/",
+                        "classpath:/static/fonts/");
     }
 
     @Bean
@@ -60,7 +68,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
         springTemplateEngine.setTemplateResolver(templateResolver());
-        //springTemplateEngine.addDialect(layoutDialect());
+        springTemplateEngine.addDialect(layoutDialect());
         return springTemplateEngine;
     }
 

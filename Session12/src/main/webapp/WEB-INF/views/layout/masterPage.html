@@ -5,8 +5,55 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE"></title>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Layout Title</title>
+    <!-- favicon
+  ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
 
+    <!-- Google Fonts
+    ============================================ -->
+    <link th:href="@{'https://fonts.googleapis.com/css?family=Lato:400,400italic,900,700,700italic,300'}" rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <!-- nivo slider CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/lib/nivo-slider/css/nivo-slider.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/lib/nivo-slider/css/preview.css}" type="text/css" media="screen" />
+
+    <!-- Fontawsome CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+    <!-- owl.carousel CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+
+    <!-- jquery-ui CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+
+    <!-- meanmenu CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/meanmenu.min.css}">
+
+    <!-- animate CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+
+    <!-- style CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- responsive CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+
+    <!-- modernizr JS
+    ============================================ -->
+    <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
 </head>
 <body>
     <div th:replace="layout/layout.html::header"></div>
@@ -14,5 +61,61 @@
         <h1>Content page render</h1>
     </div>
     <div th:replace="layout/layout.html::footer"></div>
+
+    <!-- jquery
+      ============================================ -->
+    <script type="text/javascript" th:src="@{/js/vendor/jquery-1.11.3.min.js}"></script>
+
+    <!-- popper JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+    <!-- bootstrap JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!-- nivo slider js
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/lib/nivo-slider/js/jquery.nivo.slider.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/nivo-slider/home.js}"></script>
+
+    <!-- wow JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
+
+    <!-- meanmenu JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/jquery.meanmenu.js}"></script>
+
+    <!-- owl.carousel JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+
+    <!-- price-slider JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/jquery-price-slider.js}"></script>
+
+    <!-- scrollUp JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/jquery.scrollUp.min.js}"></script>
+
+    <!--Countdown js-->
+    <script type="text/javascript" th:src="@{/js/jquery.countdown.min.js}"></script>
+
+    <!-- Sticky Menu JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/jquery.sticky.js}"></script>
+
+    <!-- Elevatezoom JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/jquery.elevateZoom-3.0.8.min.js}"></script>
+
+    <!-- plugins JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
+
+    <!-- main JS
+    ============================================ -->
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>
