@@ -27,6 +27,15 @@ public class HomeController {
         ));
     }
 
+    @GetMapping("/home")
+    public String home(Model model) {
+        return "home/home";
+    }
+    @GetMapping("/about")
+    public String about(Model model) {
+        model.addAttribute("pageTitle", "Page title");
+        return "home/about";
+    }
     @GetMapping("")
     public String index(Model model) {
         model.addAttribute("fullName", "Hoàng Văn Trung");
