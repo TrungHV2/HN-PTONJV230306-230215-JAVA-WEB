@@ -1,12 +1,16 @@
 package com.ra.web.controller;
 
+import com.ra.web.model.LoginModel;
 import com.ra.web.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+
     private List<User> data;
 
     public HomeController() {
@@ -36,8 +41,41 @@ public class HomeController {
         model.addAttribute("pageTitle", "Page title");
         return "home/about";
     }
+
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("login", new LoginModel());
+        return "home/login";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, Model model) {
+        request.getSession().removeAttribute("user");
+        return "redirect:/home/login";
+    }
+    @PostMapping("/login")
+    public String login(@Valid @ModelAttribute("login") LoginModel login, BindingResult bindingResult, HttpServletRequest request, Model model) {
+        // Check kiểm tra thủ công
+
+        // Thêm lỗi vào BindingResult
+        bindingResult.addError(new FieldError("login", "username", "Trùng username"));
+        // Kiểm tra BindingResult
+        if (bindingResult.hasErrors()) {
+            return "home/login";
+        }
+        if (login.getUsername().equals("admin") && login.getPassword().equals("1234")) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", login.getUsername());
+            return "redirect:/home";
+        } else {
+            return "home/login";
+        }
+    }
+
     @GetMapping("")
-    public String index(Model model) {
+    public String index(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute("user") == null) {
+            return "redirect:/home/login";
+        }
         model.addAttribute("fullName", "Hoàng Văn Trung");
         model.addAttribute("user", new User("admin", "0987654321", false));
         model.addAttribute("data", data);
