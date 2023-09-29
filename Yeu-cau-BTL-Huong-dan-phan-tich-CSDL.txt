@@ -1,0 +1,148 @@
+Chức năng yêu cầu tối thiểu:
+    Người dùng
+        - Hiển thị sản phẩm, phân trang, hiển thị theo các tiêu trí trên trang Home
+        - Xem chi tiết sp
+        - Tìm kiếm sp theo danh mục, hãng sx, tên
+        - Sắp xếp
+        - Mua hàng
+        - Thanh toán
+        - Đăng nhập/Đăng ký
+        - Xem lịch sửa mua hàng
+    Quản trị
+        - Danh mục
+        - Sản phẩm
+        - Đơn hàng (xem đơn hàng, cập nhật trạng thái, xem chi tiết)
+        - Quản lý người dùng
+    Kết nối CSDL vẫn sử dụng JDBC (viết store procedure để truy vấn)
+
+CSDL THAM KHẢO (Bảng Optional có thể làm hoặc không)
+
+    Product
+        Id
+        Name
+        Price
+        Discount
+        TimeDiscount
+        Image
+        ImageList
+        Availability
+        Description
+        Content
+        Created
+        Status
+        ManufacturerId
+        CategoryId
+    Category
+        Id
+        Name
+        Type
+        IsShowHome
+        IsMenu
+        ParentId
+        Image
+        Order
+        Status
+    Blog (Optional)
+        Id
+        Title
+        Image
+        Created
+        CreatedBy
+        CategoryId
+        Status
+    Manufacturer
+        Id
+        Name
+        Image
+        Status
+    Config (Optional)
+        Id
+        Name
+        Value
+        Icon
+        Status
+    Menu (Optional)
+        Id
+        Name
+        Order
+        Link
+        Status
+    Slide (Optional)
+        Id
+        Image
+        Title
+        Description
+        Link
+        Order
+        Status
+    Promotion (Optional)
+        Id
+        Name
+        Image
+        Duration
+        Status
+    Review (Optional)
+        Id
+        Rate
+        ProductId
+        CustomerId
+        Content
+    Tag (Optional)
+        Id
+        Name
+        Type
+    TagProduct (Optional)
+        Id
+        TagId
+        ProductId
+        BlogId
+    Commnet (Optional)
+        Id
+        CustomerId
+        BlogId
+        Content
+        ParentId
+        Created
+        Status
+    Color
+        Id
+        Name
+        Code
+        Status
+    ProductColor
+        ProductId
+        ColorId
+    Order
+        Id
+        CustomerId
+        Phone
+        Address
+        Created
+        UserId
+        Status
+    OrderDetail
+        Id
+        OrderId
+        ProductId
+        ColorId
+        Quantity
+        Price
+    User
+        Id
+        Email
+        Phone
+        Birthday
+        Address
+        Gender
+        Password
+        Status
+    Customer
+	Id
+	FullName
+	Phone
+	Email
+	Address
+	Birthday
+	Avatar
+	Status
+    
